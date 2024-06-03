@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./piefiredire";
+
+import "google/api/annotations.proto";
+
+service PieFireDireService{
+    rpc GetSummary(GetSummaryRequest)  returns (GetSummaryResponse){
+        option (google.api.http) = {
+            get:"/beef/summary"
+        };
+    }
+}
+
+message GetSummaryRequest{
+}
+
+message GetSummaryResponse{
+    map<string,int32> beef = 1;
+}
